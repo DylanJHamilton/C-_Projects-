@@ -26,7 +26,7 @@ bool PlayGame(int Difficulty)
 
     // Print the sum and product to the terminal.
     std::cout << std::endl;
-    std::cout << "There are three numbers in the code for the door my dude.\n";
+    std::cout << "There are three numbers in the code for the door.\n";
     std::cout << "\nThe codes adds up to: " << NumSum << std::endl;
     std::cout << "\nThe codes multiply to give: " << NumProduct << std::endl;
 
