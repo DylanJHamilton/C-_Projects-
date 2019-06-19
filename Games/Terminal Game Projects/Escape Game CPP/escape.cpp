@@ -27,8 +27,8 @@ void StartMessage(int Difficulty)
                          " *************     ********* /=======\\ ******** | *********  \n";
 
     
-    std::cout << "\n\nYou have been kidnapped and need to escape or its game over. Each room gets harder by a door level" << Difficulty;
-    std::cout << "Okay, glad to hear you broke free. Now it is complicated, but I will help you get out. Simply just make sure you have the right ombination.\n";
+    std::cout << "\n\nYou have been kidnapped and need to escape or its game over. Each room gets harder by a door level " << Difficulty;
+    std::cout << "\nOkay, glad to hear you broke free. Now it is complicated, but I will help you get out. Simply just make sure you have the right combination.\n";
     std::cout << "I'm a detective and I hacked into this system, but cannot get the combinations completely as they are encrypted, but I do have a couple hints to help you along the way.\n";
     std::cout << "Okay, are you ready now? You kind of have no choice anyways.\n\n";
 }
@@ -41,7 +41,7 @@ bool ReplayGame(int Difficulty)
 	char PlayerReplay = 0;
 	
 	std::cout << std::endl;
-	std::cout << "		Would you like to play again? ";
+	std::cout << "Would you like to play again? \nY = Yes, N = No\n";
 	std::cin >> PlayerReplay;
 	if ((PlayerReplay == 89) || (PlayerReplay == 121))
 	{
@@ -51,6 +51,8 @@ bool ReplayGame(int Difficulty)
 	else
 	{
 		bPlayersChoice = false;
+        std::cout << "Game Over\n";
+        exit(0);
 	}
 
 	return bPlayersChoice;
@@ -93,12 +95,11 @@ bool PlayGame(int Difficulty, int MaxLevel)
         return true;
     } 
     else{
-        std::cout << "\nAre you there?";
-        return false;
-
+        std::cout << "\nAre you there? Can you hear me?! Would you like to try this level again?";
         ReplayGame(Difficulty);
+        return false;
     }
-}
+} 
 
 //Winner Function
 void Winner(int Difficulty)
