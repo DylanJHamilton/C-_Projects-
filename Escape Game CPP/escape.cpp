@@ -11,7 +11,7 @@ void StartMessage(int Difficulty)
 }
 
 //PlayGame Function
-bool PlayGame(int Difficulty)
+bool PlayGame(int Difficulty, int MaxLevel)
 {
     //Call the StartMessage Function to deliver Introduction Message of the game.
     StartMessage(Difficulty);
@@ -40,12 +40,48 @@ bool PlayGame(int Difficulty)
     //Adding conditional logic to determine victory or defeat!
     if(GuessSum == NumSum && GuessProduct == NumProduct){
         std::cout << "\nKeep going!";
+
+        if(Difficulty != MaxLevel){
+            std::cout << "\nLooks like there is another door. Lets crack this code! You can do it!";
+        }
         return true;
     } 
     else{
         std::cout << "\nAre you there?";
         return false;
+
+        ReplayGame(Difficulty);
     }
+}
+
+
+bool ReplayGame(int Difficulty)
+{
+	//This function asks the player if they would like to replay the game
+	bool bPlayersChoice = true;
+	char PlayerReplay = 0;
+	
+	std::cout << std::endl;
+	std::cout << "		Would you like to play again? ";
+	std::cin >> PlayerReplay;
+	if ((PlayerReplay == 89) || (PlayerReplay == 121))
+	{
+		bPlayersChoice = true;
+		Difficulty = 1;
+	}
+	else
+	{
+		bPlayersChoice = false;
+	}
+
+	return bPlayersChoice;
+}
+
+//Winner Function
+void Winner(int Difficulty)
+{
+    std::cout << "\nYou made it! Our squad car is just down the street, we will get you home safe!";
+    ReplayGame(Difficulty);
 }
 
 //Main Function
@@ -58,7 +94,7 @@ int main()
 
     while(LevelDifficulty <= MaxDifficulty) // loop game until all levels are completed
     {
-    bool bLevelComplete = PlayGame(LevelDifficulty);
+    bool bLevelComplete = PlayGame(LevelDifficulty, MaxDifficulty);
     std::cin.clear(); //Clears errors
     std::cin.ignore(); //Discards buffering
     
@@ -66,9 +102,15 @@ int main()
         {
             ++LevelDifficulty; //increment level difficulty 
         }
-    }
-
-    std::cout << "\nYou made it! Our squad car is just down the street, we will get you home safe!";
+    }   
+    
+    /*
+    Calls Winner Dialogue, then option to replay using LevelDifficulty Params equaling to 1 to restart game. 
+    Should player want to play again.
+    */
+    Winner(LevelDifficulty);
+    
     return 0; 
+  
 }
 
