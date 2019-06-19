@@ -4,6 +4,29 @@
 //StartMessage Function
 void StartMessage(int Difficulty)
 {
+    std::cout << "-----------------------------------------------------------------------------------------------------";
+    std:: cout << "                                                      /\\     /\\    \n"
+                         "                                               ||______||    \n"
+                         "                                               || ^  ^ ||    \n"
+                         "                                               \\| |  | |/    \n"
+                         "                                                |______|     \n"
+                         "              __                                |  __  |     \n"
+                         "             /  \\       ________________________|_/  \\_|__   \n"
+                         "            / ^^ \\     /=========================/ ^^ \\===|  \n"
+                         "           /  []  \\   /=========================/  []  \\==|  \n"
+                         "          /________\\ /=========================/________\\=|  \n"
+                         "       *  |        |/==========================|        |=|  \n" 
+                         "      *** | ^^  ^^ |---------------------------| ^^  ^^ |--  \n"
+                         "     *****| []  [] |           _____           | []  [] | |  \n"
+                         "    *******        |          /_____\\          |      * | |  \n"
+                         "   *********^^  ^^ |  ^^  ^^  |  |  |  ^^  ^^  |     ***| |  \n"
+                         "  ***********]  [] |  []  []  |  |  |  []  []  | ===***** |  \n"
+                         " *************     |         @|__|__|@         |/ |*******|  \n"
+                         "***************   ***********--=====--**********| *********  \n"
+                         "***************___*********** |=====| **********|*********** \n"
+                         " *************     ********* /=======\\ ******** | *********  \n";
+
+    
     std::cout << "\n\nYou have been kidnapped and need to escape or its game over. Each room gets harder by a door level" << Difficulty;
     std::cout << "Okay, glad to hear you broke free. Now it is complicated, but I will help you get out. Simply just make sure you have the right ombination.\n";
     std::cout << "I'm a detective and I hacked into this system, but cannot get the combinations completely as they are encrypted, but I do have a couple hints to help you along the way.\n";
