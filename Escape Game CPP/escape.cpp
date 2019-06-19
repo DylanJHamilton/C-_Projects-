@@ -33,6 +33,29 @@ void StartMessage(int Difficulty)
     std::cout << "Okay, are you ready now? You kind of have no choice anyways.\n\n";
 }
 
+//ReplayGame Function, Needs to be before PlayGame Because we need to call it when the Player Loses.
+bool ReplayGame(int Difficulty)
+{
+	//This function asks the player if they would like to replay the game
+	bool bPlayersChoice = true;
+	char PlayerReplay = 0;
+	
+	std::cout << std::endl;
+	std::cout << "		Would you like to play again? ";
+	std::cin >> PlayerReplay;
+	if ((PlayerReplay == 89) || (PlayerReplay == 121))
+	{
+		bPlayersChoice = true;
+		Difficulty = 1;
+	}
+	else
+	{
+		bPlayersChoice = false;
+	}
+
+	return bPlayersChoice;
+}
+
 //PlayGame Function
 bool PlayGame(int Difficulty, int MaxLevel)
 {
@@ -75,29 +98,6 @@ bool PlayGame(int Difficulty, int MaxLevel)
 
         ReplayGame(Difficulty);
     }
-}
-
-
-bool ReplayGame(int Difficulty)
-{
-	//This function asks the player if they would like to replay the game
-	bool bPlayersChoice = true;
-	char PlayerReplay = 0;
-	
-	std::cout << std::endl;
-	std::cout << "		Would you like to play again? ";
-	std::cin >> PlayerReplay;
-	if ((PlayerReplay == 89) || (PlayerReplay == 121))
-	{
-		bPlayersChoice = true;
-		Difficulty = 1;
-	}
-	else
-	{
-		bPlayersChoice = false;
-	}
-
-	return bPlayersChoice;
 }
 
 //Winner Function
