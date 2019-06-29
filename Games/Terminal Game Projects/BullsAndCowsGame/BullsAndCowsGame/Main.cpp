@@ -1,63 +1,70 @@
 #include <iostream>
 #include <string>
+#include "FBullCowGame.h"
+using FText = std::string;
+using int32 = int;
 
-using namespace std; //Including standard library 
 
+//Function and Object Declarations
 void StartMessage();
 void PlayGame();
-string PlayerGuess();
+FText PlayerGuess();
 bool PlayAgain();
 
+FBullCowGame BCGame; //Instantiate a new game (Global Access)
+
+
 //Main Point of the Application
-int main() 
-{
+int32 main() 
+{	
+	bool PlayerWantsToPlayAgain = false;
 	
-	//Function Calls 
-	StartMessage();
-	PlayGame();
-	cout << PlayAgain();
+	//Loop to run game 
+	do {
+		StartMessage(); //StartMessage Function Call
+		PlayGame(); //PlayGame Function Call
+		PlayerWantsToPlayAgain = PlayAgain(); //PlayAgain Function Call 
+	} while(PlayerWantsToPlayAgain);
 	return 0;
 }
 
 //Main Message of the Application 
 void StartMessage()
 {
-	constexpr int WORD_LENGTH = 9;
-	cout << "Welcome to Bulls & Cows!\n";
-	cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n";
+	constexpr int32 WORD_LENGTH = 9;
+	std::cout << "Welcome to Bulls & Cows!\n";
+	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram I'm thinking of?\n";
 	return;
 }
 
 void PlayGame()
 {
-	//loop to run the game
-	constexpr int NumberOfTurns = 5;
-	for (int i = 1; i <= NumberOfTurns; i++) {
-		PlayerGuess();
-		cout << endl;
+	BCGame.Reset();
+	int32 MaxTries = BCGame.GetMaxAttempts();
+	//For Loop to run turns in game.
+	for (int32 i = 1; i <= MaxTries; i++) {
+		FText Guess = PlayerGuess();
+		std::cout << "Your guess was: " << Guess << std::endl;
+		std::cout << std::endl;
 	}
 }
 
 
-string PlayerGuess()
+FText PlayerGuess()
 {
 	//Get Player Guess
-	cout << "What is your guess?";
-	string Guess = "";
-	getline(cin, Guess);
-	cin >> Guess;
-
-	//Repeat the guess back to the Player
-	cout << "Your Guess was: " << Guess << endl;
+	int32 CurrentTry = BCGame.GetCurrentTry();
+	std::cout << "Try " << CurrentTry << ". Enter Your Guess: ";
+	FText Guess = "";
+	getline(std::cin, Guess);
+	return Guess;
 }
 
 
 bool PlayAgain() 
 {
-	cout << "Would you like to play again?";
-	string Response = "";
-	getline(cin, Response);
-
-	cout << "Is it y? " << (Response[0] == 'y') || (Response[0] == 'Y');
-	return false;
+	std::cout << "Would you like to play again (y/n)?";
+	FText Response = "";
+	getline(std::cin, Response);
+    return (Response[0] == 'y') || (Response[0] == 'Y');
 }
