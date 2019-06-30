@@ -3,6 +3,9 @@
 #include "FBullCowGame.h"
 using FText = std::string;
 using int32 = int;
+using double64 = double;
+using float32 = float; 
+
 
 
 //Function and Object Declarations
@@ -41,9 +44,19 @@ void PlayGame()
 {
 	BCGame.Reset();
 	int32 MaxTries = BCGame.GetMaxAttempts();
+	int32 CurrentTry = BCGame.GetCurrentTry();
 	//For Loop to run turns in game.
 	for (int32 i = 1; i <= MaxTries; i++) {
 		FText Guess = PlayerGuess();
+	 
+		// submit valid guess to the game
+		FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
+		//prints number of bulls and cows
+		std::cout << "Bulls = " << BullCowCount.Bulls;
+		std::cout << "Cows = " << BullCowCount.Cows;
+
+
+
 		std::cout << "Your guess was: " << Guess << std::endl;
 		std::cout << std::endl;
 	}
