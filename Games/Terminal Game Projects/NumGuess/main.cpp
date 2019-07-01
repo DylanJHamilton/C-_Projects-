@@ -14,6 +14,31 @@ void StartMessage()
 	cout << "Hey there, I am thinking of a number, tell me what it is.\n";
 }
 
+bool ReplayGame(int guessCount)
+{
+	//This function asks the player if they would like to replay the game
+	bool bPlayersChoice = true;
+	char PlayerReplay = 0;
+	std::string Response = "";
+	
+	std::cout << std::endl;
+	std::cout << "Would you like to play again? Yy for Yes, Nn for No.";
+	std::cin >> Response;
+	if ((Response[0] == 'y') || (Response[0] == 'Y'))
+	{
+		bPlayersChoice = true;
+		guessCount--; //we always want it at the last level for the user to get all of the hints
+	}
+	else
+	{
+		bPlayersChoice = false;
+        std::cout << "Game Over\n";
+        exit(0);
+	}
+
+	return bPlayersChoice;
+}
+
 
 int main()
 {
@@ -26,37 +51,37 @@ int main()
 	int guess;
 	int guessCount = 0;
 	int guessLimit = 3;
-	bool outOfGuesses = false;
 
+	StartMessage(); //StartMessage Call
+	
 	//Loop to run the game
-		do
-		{
-			if (guessCount < guessLimit) { //condition that takes the guessCount is less than the guessLimit, the game will run
-				StartMessage();
-				cout << "Enter The Guess: \n";
-				cin >> guess;
-				guessCount++;
+	while (guessCount <= guessLimit)
+	{
+		cout << "Enter The Guess: \n";
+		cin >> guess;
 
-				if (guessCount == 1) {
-					cout << "Here is a couple of hints, the sum of the number is: " << secretSum << ".\n";
-					cout << "The Product of this number is: " << secretProduct << ".\n";
-				}
-				if (guessCount == 2) {
-					cout << "Here is another couple of hints, the sum of the number is: " << secretSum << ".\n";
-					cout << "The Product of this number is: " << secretProduct << ".\n";
-					cout << "The number divided by 2 is: " << secretByTwo << ".\n";
-				}
-			}
-			else {
-				outOfGuesses = true;
-         }
-		} while (secretNumber != guess && !outOfGuesses);
+		if (guess == secretNumber) {
+			cout << "You Win! Congrats!";
+			ReplayGame(guessCount);
+		} 
+		else if(guess != secretNumber) {
+			guessCount++;
+		}
 
-	//Checks to see if user won the game. If outOfGuesses is true, then you lose, if not congrats, you win!
-	if (outOfGuesses == true) {
-		cout << "You are going to have to think harder than that!\n";
+		if (guessCount == 1) {
+			cout << "Here is a couple of hints, the sum of the number is: " << secretSum << ".\n";
+			cout << "The Product of this number is: " << secretProduct << ".\n";
+		}
+		if (guessCount == 2) {
+			cout << "Here is another couple of hints, the sum of the number is: " << secretSum << ".\n";
+			cout << "The Product of this number is: " << secretProduct << ".\n";
+			cout << "The number divided by 2 is: " << secretByTwo << ".\n";
+		}
+		if (guessCount == 3) {
+			std::cout << "You lose!";
+			ReplayGame(guessCount);
+		}
 	}
-	else {
-		cout << "You win the game! \n";
-	}
-}
+
+
+} 
