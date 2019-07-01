@@ -7,5 +7,5 @@ I program for Terminal Projects for Games pretty much.
 A list of games written for the Terminal:
 <ol>
 <li>Escape</li>
-<li>COMING SOON: Bulls & Cows (Udemy UE4 Training Course)</li>
+<li>Bulls & Cows</li>
 </ol>
