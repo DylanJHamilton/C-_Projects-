@@ -9,4 +9,5 @@ A list of games written for the Terminal:
 <li>Escape</li>
 <li>Bulls & Cows</li>
 <li>NumGuess</li>
+<li>Rock Paper Scissors</li>
 </ol>

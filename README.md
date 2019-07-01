@@ -8,6 +8,7 @@ Here is the following Games, Apps, APIs and Unreal Projects I have:
 <li>Bulls & Cows Isogram Guessing Game</li>
 <li>Basic Calculation App</li>
 <li>Quick NumGuess Game</li>
+<li>Rock Paper Scissors (Terminal Version)</li>
 </ol>
 
 
