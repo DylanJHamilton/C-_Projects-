@@ -49,9 +49,7 @@ int main()
 			}
 			else {
 				outOfGuesses = true;
-
-	
-			}
+         }
 		} while (secretNumber != guess && !outOfGuesses);
 
 	//Checks to see if user won the game. If outOfGuesses is true, then you lose, if not congrats, you win!
