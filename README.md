@@ -5,8 +5,9 @@ This repository are some of my works of apps I have created using the <b>C++ Pro
 Here is the following Games, Apps, APIs and Unreal Projects I have: 
 <ol>
 <li>Escape: Console Application Codebreaker Game</li>
-<li>Bulls & Cows</li>
+<li>Bulls & Cows Isogram Guessing Game</li>
 <li>Basic Calculation App</li>
+<li>Quick NumGuess Game</li>
 </ol>
 
 

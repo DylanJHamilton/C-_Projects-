@@ -8,4 +8,5 @@ A list of games written for the Terminal:
 <ol>
 <li>Escape</li>
 <li>Bulls & Cows</li>
+<li>NumGuess</li>
 </ol>
